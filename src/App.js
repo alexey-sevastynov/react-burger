@@ -5,18 +5,21 @@ import BurgerBlock from "./components/burger-block/BurgerBlock";
 import Categories from "./components/categories/Categories";
 import Header from "./components/header/Header";
 import Sort from "./components/sort/Sort";
-
-import burgers from "./assets/db.json";
+import Skeleton from "./components/burger-block/Skeleton";
 
 const typeNames = ["classic", "dietary"];
 
 function App() {
   const [items, setItems] = React.useState([]);
+  const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {
     fetch("https://644d7bc1cfdddac970a58e8c.mockapi.io/items")
       .then((res) => res.json())
-      .then((json) => setItems(json));
+      .then((arr) => {
+        setItems(arr);
+        setIsLoading(false);
+      });
   }, []);
 
   return (
@@ -30,9 +33,15 @@ function App() {
           </div>
           <h2 className="content__title">Все пиццы</h2>
           <div className="content__items">
-            {items.map((burger) => (
-              <BurgerBlock key={burger.id} {...burger} typeNames={typeNames} />
-            ))}
+            {isLoading
+              ? [...new Array(6)].map((_, index) => <Skeleton key={index} />)
+              : items.map((burger) => (
+                  <BurgerBlock
+                    key={burger.id}
+                    {...burger}
+                    typeNames={typeNames}
+                  />
+                ))}
           </div>
         </div>
       </div>
