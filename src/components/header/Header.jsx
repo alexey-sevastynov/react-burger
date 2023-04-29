@@ -1,6 +1,6 @@
 import React from "react";
 
-import logo from "../assets/img/burger.png";
+import logo from "../../assets/img/burger.png";
 
 function Header() {
   return (

@@ -1,8 +1,13 @@
+import "./scss/app.scss";
+
 import BurgerBlock from "./components/burger-block/BurgerBlock";
 import Categories from "./components/categories/Categories";
 import Header from "./components/header/Header";
 import Sort from "./components/sort/Sort";
-import "./scss/app.scss";
+
+import burgers from "./assets/db.json";
+
+const typeNames = ["classic", "dietary"];
 
 function App() {
   return (
@@ -16,7 +21,9 @@ function App() {
           </div>
           <h2 className="content__title">Все пиццы</h2>
           <div className="content__items">
-            <BurgerBlock />
+            {burgers.map((burger) => (
+              <BurgerBlock key={burger.id} {...burger} typeNames={typeNames} />
+            ))}
           </div>
         </div>
       </div>

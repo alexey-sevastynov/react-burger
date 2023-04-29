@@ -1,27 +1,48 @@
 import React from "react";
 
-function BurgerBlock() {
+function BurgerBlock({ title, imageUrl, sizes, types, typeNames, price }) {
+  const [activeTypes, setActiveTypes] = React.useState(0);
+  const [activeSizes, setActiveSizes] = React.useState(0);
+
+  const onClickTypes = (index) => {
+    setActiveTypes(index);
+  };
+  const onClickSizes = (index) => {
+    setActiveSizes(index);
+  };
+
+  const showTypes = types.map((typeIndex) => (
+    <li
+      key={typeIndex}
+      onClick={() => onClickTypes(typeIndex)}
+      className={typeIndex === activeTypes ? "active" : ""}
+    >
+      {typeNames[typeIndex]}
+    </li>
+  ));
+
+  const showSizes = sizes.map((size, index) => (
+    <li
+      key={size}
+      onClick={() => onClickSizes(index)}
+      className={index === activeSizes ? "active" : ""}
+    >
+      {size} gr.
+    </li>
+  ));
+
+  const showPrice = price.find((_, id) => id === activeSizes);
+
   return (
     <div className="pizza-block">
-      <img
-        className="pizza-block__image"
-        src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
-        alt="Pizza"
-      />
-      <h4 className="pizza-block__title">Чизбургер-пицца</h4>
+      <img className="pizza-block__image" src={imageUrl} alt="Gumburger" />
+      <h4 className="pizza-block__title">{title}</h4>
       <div className="pizza-block__selector">
-        <ul>
-          <li className="active">тонкое</li>
-          <li>традиционное</li>
-        </ul>
-        <ul>
-          <li className="active">26 см.</li>
-          <li>30 см.</li>
-          <li>40 см.</li>
-        </ul>
+        <ul>{showTypes}</ul>
+        <ul>{showSizes}</ul>
       </div>
       <div className="pizza-block__bottom">
-        <div className="pizza-block__price">от 395 ₽</div>
+        <div className="pizza-block__price">{showPrice} UAH</div>
         <div className="button button--outline button--add">
           <svg
             width="12"
@@ -35,7 +56,7 @@ function BurgerBlock() {
               fill="white"
             />
           </svg>
-          <span>Добавить</span>
+          <span>Add</span>
           <i>2</i>
         </div>
       </div>
