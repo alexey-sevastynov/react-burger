@@ -1,3 +1,4 @@
+import React from "react";
 import "./scss/app.scss";
 
 import BurgerBlock from "./components/burger-block/BurgerBlock";
@@ -10,6 +11,14 @@ import burgers from "./assets/db.json";
 const typeNames = ["classic", "dietary"];
 
 function App() {
+  const [items, setItems] = React.useState([]);
+
+  React.useEffect(() => {
+    fetch("https://644d7bc1cfdddac970a58e8c.mockapi.io/items")
+      .then((res) => res.json())
+      .then((json) => setItems(json));
+  }, []);
+
   return (
     <div className="wrapper">
       <Header />
@@ -21,7 +30,7 @@ function App() {
           </div>
           <h2 className="content__title">Все пиццы</h2>
           <div className="content__items">
-            {burgers.map((burger) => (
+            {items.map((burger) => (
               <BurgerBlock key={burger.id} {...burger} typeNames={typeNames} />
             ))}
           </div>
