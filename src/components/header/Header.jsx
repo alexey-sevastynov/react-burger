@@ -1,20 +1,22 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
+
 import logo from "../../assets/img/burger.png";
 
 function Header() {
   return (
     <div className="header">
       <div className="container">
-        <div className="header__logo">
+        <Link to="/" className="header__logo">
           <img width="38" src={logo} alt="Burger logo" />
           <div>
             <h1>React Burger</h1>
             <p>The most delicious burger in the universe</p>
           </div>
-        </div>
+        </Link>
         <div className="header__cart">
-          <a href="/cart.html" className="button button--cart">
+          <Link to="/basket" className="button button--cart">
             <span>520 ₽</span>
             <div className="button__delimiter"></div>
             <svg
@@ -47,7 +49,7 @@ function Header() {
               />
             </svg>
             <span>3</span>
-          </a>
+          </Link>
         </div>
       </div>
     </div>
