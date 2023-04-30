@@ -17,6 +17,7 @@ function HomePage() {
       .then((arr) => {
         setItems(arr);
         setIsLoading(false);
+        window.scroll(0, 0);
       });
   }, []);
 
