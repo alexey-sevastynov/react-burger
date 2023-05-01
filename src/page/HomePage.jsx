@@ -5,11 +5,20 @@ import Categories from "../components/categories/Categories";
 import Sort from "../components/sort/Sort";
 import Skeleton from "../components/burger-block/Skeleton";
 import Pagination from "../components/pagination/Pagination";
+
 import { Context } from "../App";
+
+import { useDispatch, useSelector } from "react-redux";
+import { setCategoryId } from "../redux/slices/filterSlice";
 
 const typeNames = ["classic", "dietary"];
 
 function HomePage() {
+  const categoryId = useSelector((state) => state.filterSlice.categoryId);
+
+  console.log(categoryId);
+  const dispatch = useDispatch();
+
   const { searchValue } = React.useContext(Context);
 
   const [items, setItems] = React.useState([]);
@@ -18,7 +27,7 @@ function HomePage() {
     name: "popular",
     sortProperty: "raiting",
   });
-  const [categoryId, setCategoryId] = React.useState(0);
+
   const [page, setPage] = React.useState(1);
 
   React.useEffect(() => {
@@ -75,7 +84,7 @@ function HomePage() {
         <div className="content__top">
           <Categories
             categoryId={categoryId}
-            onChangeCategory={(id) => setCategoryId(id)}
+            onChangeCategory={(id) => dispatch(setCategoryId(id))}
           />
           <Sort sortType={sortType} onChangeSort={(obj) => setSortType(obj)} />
         </div>
