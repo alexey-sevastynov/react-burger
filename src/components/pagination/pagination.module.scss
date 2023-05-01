@@ -1,0 +1,45 @@
+@import "../../scss/variable.scss";
+
+.root {
+  display: flex;
+  justify-content: space-between;
+  width: 250px;
+
+  .circle {
+    cursor: pointer;
+    &:hover {
+      background-color: $orange;
+    }
+  }
+
+  .circleMain {
+    .active {
+      background: $orange;
+    }
+  }
+
+  .circle,
+  .circleMain {
+    position: relative;
+    height: 40px;
+    width: 40px;
+    background: $background;
+    border-radius: 100%;
+
+    p {
+      font-size: 20px;
+      font-weight: bold;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%);
+    }
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%);
+      height: 50%;
+    }
+  }
+}

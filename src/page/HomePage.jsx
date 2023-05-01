@@ -4,6 +4,7 @@ import BurgerBlock from "../components/burger-block/BurgerBlock";
 import Categories from "../components/categories/Categories";
 import Sort from "../components/sort/Sort";
 import Skeleton from "../components/burger-block/Skeleton";
+import Pagination from "../components/pagination/Pagination";
 
 const typeNames = ["classic", "dietary"];
 
@@ -15,6 +16,7 @@ function HomePage({ searchValue }) {
     sortProperty: "raiting",
   });
   const [categoryId, setCategoryId] = React.useState(0);
+  const [page, setPage] = React.useState(1);
 
   React.useEffect(() => {
     const url = new URL(`https://644d7bc1cfdddac970a58e8c.mockapi.io/items`);
@@ -28,6 +30,11 @@ function HomePage({ searchValue }) {
     if (categoryId > 0) {
       url.searchParams.append("category", `${categoryId}`);
     }
+
+    //tagination
+    url.searchParams.append("completed", false);
+    url.searchParams.append("page", page);
+    url.searchParams.append("limit", 4);
 
     setIsLoading(true);
 
@@ -46,7 +53,7 @@ function HomePage({ searchValue }) {
         window.scroll(0, 0);
       })
       .catch((error) => console.log(error));
-  }, [sortType, categoryId]);
+  }, [sortType, categoryId, page]);
 
   const onLoader = [...new Array(6)].map((_, index) => (
     <Skeleton key={index} />
@@ -71,6 +78,9 @@ function HomePage({ searchValue }) {
         </div>
         <h2 className="content__title">Все пиццы</h2>
         <div className="content__items">{isLoading ? onLoader : burgers}</div>
+        <div className="content__pagination">
+          <Pagination setPage={setPage} page={page} />
+        </div>
       </div>
     </div>
   );
