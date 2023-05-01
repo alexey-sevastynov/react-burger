@@ -20,6 +20,7 @@ function Pagination({ setPage, page }) {
   const showNumberPages = pages.map((item, id) => {
     return (
       <div
+        key={item}
         style={page === +item ? { backgroundColor: "#136f0d" } : null}
         onClick={() => setPage(+item)}
         className={styles.circleMain}

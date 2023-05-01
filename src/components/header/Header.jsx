@@ -6,7 +6,7 @@ import logo from "../../assets/img/burger.png";
 
 import Search from "../search/Search";
 
-function Header({ searchValue, setSearchValue }) {
+function Header() {
   return (
     <div className="header">
       <div className="container">
@@ -17,7 +17,7 @@ function Header({ searchValue, setSearchValue }) {
             <p>The most delicious burger in the universe</p>
           </div>
         </Link>
-        <Search searchValue={searchValue} setSearchValue={setSearchValue} />
+        <Search />
 
         <div className="header__cart">
           <Link to="/basket" className="button button--cart">

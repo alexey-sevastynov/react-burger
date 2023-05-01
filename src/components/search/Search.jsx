@@ -3,7 +3,10 @@ import search from "../../assets/img/search.png";
 import close from "../../assets/img/close.png";
 import styles from "./search.module.scss";
 
-function Search({ searchValue, setSearchValue }) {
+import { Context } from "../../App";
+
+function Search() {
+  const { searchValue, setSearchValue } = React.useContext(Context);
   return (
     <div className={styles.root}>
       <img className={styles.search} src={search} alt="search" />

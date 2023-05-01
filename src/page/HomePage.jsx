@@ -5,10 +5,13 @@ import Categories from "../components/categories/Categories";
 import Sort from "../components/sort/Sort";
 import Skeleton from "../components/burger-block/Skeleton";
 import Pagination from "../components/pagination/Pagination";
+import { Context } from "../App";
 
 const typeNames = ["classic", "dietary"];
 
-function HomePage({ searchValue }) {
+function HomePage() {
+  const { searchValue } = React.useContext(Context);
+
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const [sortType, setSortType] = React.useState({

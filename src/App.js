@@ -8,24 +8,21 @@ import HomePage from "./page/HomePage";
 import BasketPage from "./page/BasketPage";
 import NotFound from "./page/NotFound";
 
+export const Context = React.createContext("");
+
 function App() {
   const [searchValue, setSearchValue] = React.useState("");
 
   return (
-    <>
+    <Context.Provider value={{ searchValue, setSearchValue }}>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <Layout searchValue={searchValue} setSearchValue={setSearchValue} />
-          }
-        >
-          <Route index element={<HomePage searchValue={searchValue} />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
           <Route path="basket" element={<BasketPage />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
-    </>
+    </Context.Provider>
   );
 }
 
