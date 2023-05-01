@@ -1,17 +1,23 @@
 import React from "react";
 
-const sortNames = ["popular", "price", "alphabet"];
+const sortNames = [
+  { sortProperty: "rating", name: "popular (DESC)" },
+  { sortProperty: "-rating", name: "popular (ASC)" },
+  { sortProperty: "price", name: "price (DESC)" },
+  { sortProperty: "-price", name: "price (ASC)" },
+  { sortProperty: "title", name: "alphabet (DESC)" },
+  { sortProperty: "-title", name: "alphabet (ASC)" },
+];
 
-function Sort() {
+function Sort({ sortType, onChangeSort }) {
   const [isVisible, setIsVisible] = React.useState(false);
-  const [selectedId, setSelectedId] = React.useState(0);
 
   const onClickSort = (index) => {
-    setSelectedId(index);
+    onChangeSort(index);
     setIsVisible(false);
   };
 
-  const showSortname = sortNames[selectedId];
+  // const showSortname = sortNames[sortId];
 
   return (
     <div className="sort">
@@ -29,18 +35,20 @@ function Sort() {
           />
         </svg>
         <b>Sort by:</b>
-        <span onClick={() => setIsVisible(!isVisible)}>{showSortname}</span>
+        <span onClick={() => setIsVisible(!isVisible)}>{sortType.name}</span>
       </div>
       {isVisible && (
         <div className="sort__popup">
           <ul>
-            {sortNames.map((name, index) => (
+            {sortNames.map((obj, index) => (
               <li
-                onClick={() => onClickSort(index)}
-                key={name}
-                className={selectedId === index ? "active" : ""}
+                onClick={() => onClickSort(obj)}
+                key={obj.name}
+                className={
+                  sortType.sortProperty === obj.sortProperty ? "active" : ""
+                }
               >
-                {name}
+                {obj.name}
               </li>
             ))}
           </ul>

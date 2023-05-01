@@ -1,0 +1,45 @@
+.root {
+  position: absolute;
+  left: 370px;
+
+  .search {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    height: 60%;
+    opacity: 0.5;
+  }
+
+  .close {
+    position: absolute;
+    top: 40%;
+    right: 10px;
+    transform: translateY(-50%);
+    height: 30%;
+    opacity: 0.5;
+    cursor: pointer;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  input {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 12px 45px;
+    width: 300px;
+    border-radius: 10px;
+    font-size: 16px;
+
+    &:focus {
+      border: 2px solid rgba(0, 0, 0, 0.4);
+    }
+  }
+}
+
+@media (max-width: 1030px) {
+  .root {
+    position: absolute;
+    top: 80px;
+    left: 0;
+  }
+}

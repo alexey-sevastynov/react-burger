@@ -3,10 +3,10 @@ import Header from "../components/header/Header";
 
 import { Outlet } from "react-router-dom";
 
-function Layout() {
+function Layout({ searchValue, setSearchValue }) {
   return (
     <div className="wrapper">
-      <Header />
+      <Header searchValue={searchValue} setSearchValue={setSearchValue} />
       <Outlet />
     </div>
   );

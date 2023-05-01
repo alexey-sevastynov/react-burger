@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 
 import logo from "../../assets/img/burger.png";
 
-function Header() {
+import Search from "../search/Search";
+
+function Header({ searchValue, setSearchValue }) {
   return (
     <div className="header">
       <div className="container">
@@ -15,6 +17,8 @@ function Header() {
             <p>The most delicious burger in the universe</p>
           </div>
         </Link>
+        <Search searchValue={searchValue} setSearchValue={setSearchValue} />
+
         <div className="header__cart">
           <Link to="/basket" className="button button--cart">
             <span>520 ₽</span>

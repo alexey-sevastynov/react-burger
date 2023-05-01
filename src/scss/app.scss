@@ -339,6 +339,12 @@ body {
   }
 }
 
+@media (max-width: 1030px) {
+  .content {
+    padding: 60px 0;
+  }
+}
+
 @media (max-width: 674px) {
   body {
     padding: 20px 0;
