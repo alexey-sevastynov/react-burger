@@ -5,10 +5,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import BasketEmpty from "../components/basket/BasketEmpty";
 import BasketItem from "../components/basket/BasketItem";
+import { clearItems } from "../redux/slices/basketSlice";
 
 function BasketPage() {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.basketSlice.items);
+
+  const currentCount = items.reduce((sum, obj) => obj.count + sum, 0);
+
+  const currentPrice = items.reduce(
+    (sum, obj) => obj.price * obj.count + sum,
+    0
+  );
+
+  const onClearBasket = () => {
+    if (window.confirm("You want to delete all pizzas from basket?"))
+      dispatch(clearItems());
+  };
 
   const showBasket = (
     <div className="cart">
@@ -45,7 +58,7 @@ function BasketPage() {
           </svg>
           Basket
         </h2>
-        <div className="cart__clear">
+        <div onClick={onClearBasket} className="cart__clear">
           <svg
             width="20"
             height="20"
@@ -94,10 +107,10 @@ function BasketPage() {
       <div className="cart__bottom">
         <div className="cart__bottom-details">
           <span>
-            Total pizzas: <b>0 pcs.</b>
+            Total pizzas: <b>{currentCount} pcs.</b>
           </span>
           <span>
-            Order price: <b>0 UAH</b>
+            Order price: <b>{currentPrice} UAH</b>
           </span>
         </div>
         <div className="cart__bottom-buttons">
@@ -134,7 +147,7 @@ function BasketPage() {
   return (
     <div className="content">
       <div className="container container--cart">
-        {1 ? showBasket : <BasketEmpty />}
+        {items.length ? showBasket : <BasketEmpty />}
       </div>
     </div>
   );

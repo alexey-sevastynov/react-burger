@@ -27,6 +27,19 @@ export const basketSlice = createSlice({
         0
       );
     },
+    // plusItem: (state, action) => {
+    //   const findItem = state.items.find((obj) => obj.id === action.payload);
+    //   if (findItem) {
+    //     findItem.count++;
+    //   }
+    // },
+    minusItem: (state, action) => {
+      const findItem = state.items.find((obj) => obj.id === action.payload);
+      const currentCount = state.items[0].count;
+      if (findItem && currentCount > 1) {
+        findItem.count--;
+      }
+    },
     removeItem: (state, action) => {
       state.items = state.items.filter((obj) => obj.id !== action.payload);
     },
@@ -36,6 +49,13 @@ export const basketSlice = createSlice({
   },
 });
 
-export const { addItem, removeItem, clearItems } = basketSlice.actions;
+export const {
+  addItem,
+  removeItem,
+  clearItems,
+  plusItem,
+  minusItem,
+  findItem,
+} = basketSlice.actions;
 
 export default basketSlice.reducer;

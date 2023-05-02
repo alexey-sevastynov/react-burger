@@ -12,6 +12,11 @@ function Header() {
 
   const currentCount = items.reduce((sum, obj) => obj.count + sum, 0);
 
+  const currentPrice = items.reduce(
+    (sum, obj) => obj.price * obj.count + sum,
+    0
+  );
+
   return (
     <div className="header">
       <div className="container">
@@ -25,7 +30,7 @@ function Header() {
 
         <div className="header__cart">
           <Link to="/basket" className="button button--cart">
-            <span>{totalPrice} UAH</span>
+            <span>{currentPrice} UAH</span>
             <div className="button__delimiter"></div>
             <svg
               width="18"
