@@ -15,9 +15,10 @@ import { setCategoryId } from "../redux/slices/filterSlice";
 const typeNames = ["classic", "dietary"];
 
 function HomePage() {
-  const { categoryId, sortType } = useSelector(({ filterSlice }) => ({
+  const { categoryId, sortType, page } = useSelector(({ filterSlice }) => ({
     categoryId: filterSlice.categoryId,
     sortType: filterSlice.sort,
+    page: filterSlice.page,
   }));
 
   const dispatch = useDispatch();
@@ -26,8 +27,6 @@ function HomePage() {
 
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
-
-  const [page, setPage] = React.useState(1);
 
   React.useEffect(() => {
     const url = new URL(`https://644d7bc1cfdddac970a58e8c.mockapi.io/items`);
@@ -103,7 +102,7 @@ function HomePage() {
         <h2 className="content__title">Все пиццы</h2>
         <div className="content__items">{isLoading ? onLoader : burgers}</div>
         <div className="content__pagination">
-          <Pagination setPage={setPage} page={page} />
+          <Pagination />
         </div>
       </div>
     </div>

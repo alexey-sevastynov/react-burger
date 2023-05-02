@@ -2,18 +2,24 @@ import React from "react";
 import styles from "./pagination.module.scss";
 import left from "../../assets/img/left-arrow.png";
 import right from "../../assets/img/right-arrow.png";
+import { useDispatch, useSelector } from "react-redux";
+import { setPageNext, setPagePrev } from "../../redux/slices/filterSlice";
+import { setPage } from "../../redux/slices/filterSlice";
 
 const pages = ["1", "2", "3"];
 
-function Pagination({ setPage, page }) {
+function Pagination() {
+  const dispatch = useDispatch();
+  const page = useSelector(({ filterSlice }) => filterSlice.page);
+
   const leftPage = () => {
     if (page > 1) {
-      setPage((value) => value - 1);
+      dispatch(setPagePrev(page));
     }
   };
   const rightPage = () => {
     if (page < 3) {
-      setPage((value) => value + 1);
+      dispatch(setPageNext(page));
     }
   };
 
@@ -22,7 +28,7 @@ function Pagination({ setPage, page }) {
       <div
         key={item}
         style={page === +item ? { backgroundColor: "#136f0d" } : null}
-        onClick={() => setPage(+item)}
+        onClick={() => dispatch(setPage(+item))}
         className={styles.circleMain}
       >
         <p>{item}</p>
