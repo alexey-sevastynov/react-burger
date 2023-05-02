@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "axios";
+import qs from "qs";
+import { useNavigate } from "react-router-dom";
 
 import BurgerBlock from "../components/burger-block/BurgerBlock";
 import Categories from "../components/categories/Categories";
@@ -15,13 +17,14 @@ import { setCategoryId } from "../redux/slices/filterSlice";
 const typeNames = ["classic", "dietary"];
 
 function HomePage() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const { categoryId, sortType, page } = useSelector(({ filterSlice }) => ({
     categoryId: filterSlice.categoryId,
     sortType: filterSlice.sort,
     page: filterSlice.page,
   }));
-
-  const dispatch = useDispatch();
 
   const { searchValue } = React.useContext(Context);
 
@@ -76,6 +79,16 @@ function HomePage() {
     //     window.scroll(0, 0);
     //   })
     //   .catch((error) => console.log(error));
+  }, [sortType, categoryId, page]);
+
+  React.useEffect(() => {
+    const queryString = qs.stringify({
+      sortProperty: sortType.sortProperty,
+      categoryId,
+      page,
+    });
+
+    navigate(`?${queryString}`);
   }, [sortType, categoryId, page]);
 
   const onLoader = [...new Array(6)].map((_, index) => (
