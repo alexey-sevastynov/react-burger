@@ -14,7 +14,10 @@ import { setCategoryId } from "../redux/slices/filterSlice";
 const typeNames = ["classic", "dietary"];
 
 function HomePage() {
-  const categoryId = useSelector((state) => state.filterSlice.categoryId);
+  const { categoryId, sortType } = useSelector(({ filterSlice }) => ({
+    categoryId: filterSlice.categoryId,
+    sortType: filterSlice.sort,
+  }));
 
   console.log(categoryId);
   const dispatch = useDispatch();
@@ -23,10 +26,6 @@ function HomePage() {
 
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
-  const [sortType, setSortType] = React.useState({
-    name: "popular",
-    sortProperty: "raiting",
-  });
 
   const [page, setPage] = React.useState(1);
 
@@ -86,7 +85,7 @@ function HomePage() {
             categoryId={categoryId}
             onChangeCategory={(id) => dispatch(setCategoryId(id))}
           />
-          <Sort sortType={sortType} onChangeSort={(obj) => setSortType(obj)} />
+          <Sort />
         </div>
         <h2 className="content__title">Все пиццы</h2>
         <div className="content__items">{isLoading ? onLoader : burgers}</div>
