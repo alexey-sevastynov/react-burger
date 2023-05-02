@@ -1,8 +1,29 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem } from "../../redux/slices/basketSlice";
 
-function BurgerBlock({ title, imageUrl, sizes, types, typeNames, price }) {
+function BurgerBlock({ id, title, imageUrl, sizes, types, typeNames, price }) {
+  const dispatch = useDispatch();
+  const basketItem = useSelector((state) =>
+    state.basketSlice.items.find((obj) => obj.id === id)
+  );
+
+  const showCount = basketItem ? basketItem.count : "";
+
   const [activeTypes, setActiveTypes] = React.useState(0);
   const [activeSizes, setActiveSizes] = React.useState(0);
+
+  const onClickAdd = () => {
+    const item = {
+      id,
+      title,
+      imageUrl,
+      price: showPrice,
+      type: typeNames[activeTypes],
+      size: sizes[activeSizes],
+    };
+    dispatch(addItem(item));
+  };
 
   const onClickTypes = (index) => {
     setActiveTypes(index);
@@ -43,7 +64,10 @@ function BurgerBlock({ title, imageUrl, sizes, types, typeNames, price }) {
       </div>
       <div className="pizza-block__bottom">
         <div className="pizza-block__price">{showPrice} UAH</div>
-        <div className="button button--outline button--add">
+        <div
+          onClick={onClickAdd}
+          className="button button--outline button--add"
+        >
           <svg
             width="12"
             height="12"
@@ -57,7 +81,7 @@ function BurgerBlock({ title, imageUrl, sizes, types, typeNames, price }) {
             />
           </svg>
           <span>Add</span>
-          <i>2</i>
+          {showCount && <i>{showCount}</i>}
         </div>
       </div>
     </div>

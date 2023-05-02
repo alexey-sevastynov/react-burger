@@ -19,10 +19,10 @@ body {
 }
 
 .content {
-  padding: 40px 0;
+  padding: 20px 0;
 
   &__title {
-    margin: 35px 0;
+    margin: 20px 0;
   }
 
   &__items {
@@ -341,12 +341,6 @@ body {
         width: 4%;
       }
     }
-  }
-}
-
-@media (max-width: 1030px) {
-  .content {
-    padding: 60px 0;
   }
 }
 

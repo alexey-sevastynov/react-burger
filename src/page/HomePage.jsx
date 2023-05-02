@@ -13,6 +13,7 @@ import { Context } from "../App";
 
 import { useDispatch, useSelector } from "react-redux";
 import { setCategoryId } from "../redux/slices/filterSlice";
+import Search from "../components/search/Search";
 
 const typeNames = ["classic", "dietary"];
 
@@ -105,6 +106,7 @@ function HomePage() {
   return (
     <div className="content">
       <div className="container">
+        <Search />
         <div className="content__top">
           <Categories
             categoryId={categoryId}

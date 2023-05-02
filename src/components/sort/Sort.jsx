@@ -28,7 +28,6 @@ function Sort() {
     const handleOutsideClick = (e) => {
       if (!e.composedPath().includes(sortRef.current)) {
         setIsVisible(false);
-        console.log("cklik");
       }
     };
 

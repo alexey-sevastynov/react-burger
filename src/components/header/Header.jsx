@@ -5,8 +5,13 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/img/burger.png";
 
 import Search from "../search/Search";
+import { useSelector } from "react-redux";
 
 function Header() {
+  const { items, totalPrice } = useSelector((state) => state.basketSlice);
+
+  const currentCount = items.reduce((sum, obj) => obj.count + sum, 0);
+
   return (
     <div className="header">
       <div className="container">
@@ -17,11 +22,10 @@ function Header() {
             <p>The most delicious burger in the universe</p>
           </div>
         </Link>
-        <Search />
 
         <div className="header__cart">
           <Link to="/basket" className="button button--cart">
-            <span>520 ₽</span>
+            <span>{totalPrice} UAH</span>
             <div className="button__delimiter"></div>
             <svg
               width="18"
@@ -52,7 +56,7 @@ function Header() {
                 strokeLinejoin="round"
               />
             </svg>
-            <span>3</span>
+            <span>{currentCount}</span>
           </Link>
         </div>
       </div>
