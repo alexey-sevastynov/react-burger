@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 
 import BurgerBlock from "../components/burger-block/BurgerBlock";
 import Categories from "../components/categories/Categories";
@@ -19,7 +20,6 @@ function HomePage() {
     sortType: filterSlice.sort,
   }));
 
-  console.log(categoryId);
   const dispatch = useDispatch();
 
   const { searchValue } = React.useContext(Context);
@@ -49,21 +49,34 @@ function HomePage() {
 
     setIsLoading(true);
 
-    fetch(url, {
-      method: "GET",
-      headers: { "content-type": "application/json" },
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
+    //____________AXIOS
+    axios
+      .get(url, {
+        method: "GET",
+        headers: { "content-type": "application/json" },
       })
-      .then((arr) => {
-        setItems(arr);
+      .then((resposne) => {
+        setItems(resposne.data);
         setIsLoading(false);
         window.scroll(0, 0);
-      })
-      .catch((error) => console.log(error));
+      });
+
+    //____________FETCH
+    // fetch(url, {
+    //   method: "GET",
+    //   headers: { "content-type": "application/json" },
+    // })
+    //   .then((res) => {
+    //     if (res.ok) {
+    //       return res.json();
+    //     }
+    //   })
+    //   .then((arr) => {
+    //     setItems(arr);
+    //     setIsLoading(false);
+    //     window.scroll(0, 0);
+    //   })
+    //   .catch((error) => console.log(error));
   }, [sortType, categoryId, page]);
 
   const onLoader = [...new Array(6)].map((_, index) => (
