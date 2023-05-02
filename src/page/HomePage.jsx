@@ -32,7 +32,7 @@ function HomePage() {
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
 
-  React.useEffect(() => {
+  const apiBurgers = async () => {
     const url = new URL(`https://644d7bc1cfdddac970a58e8c.mockapi.io/items`);
 
     const showSortName = sortType.sortProperty.replace("-", "");
@@ -53,16 +53,21 @@ function HomePage() {
     setIsLoading(true);
 
     //____________AXIOS
-    axios
-      .get(url, {
+
+    try {
+      const resposne = await axios.get(url, {
         method: "GET",
         headers: { "content-type": "application/json" },
-      })
-      .then((resposne) => {
-        setItems(resposne.data);
-        setIsLoading(false);
-        window.scroll(0, 0);
       });
+
+      setItems(resposne.data);
+
+      window.scroll(0, 0);
+    } catch (error) {
+      console.log(error, "err");
+    } finally {
+      setIsLoading(false);
+    }
 
     //____________FETCH
     // fetch(url, {
@@ -80,6 +85,10 @@ function HomePage() {
     //     window.scroll(0, 0);
     //   })
     //   .catch((error) => console.log(error));
+  };
+
+  React.useEffect(() => {
+    apiBurgers();
   }, [sortType, categoryId, page]);
 
   React.useEffect(() => {
