@@ -3,7 +3,6 @@ import search from "../../assets/img/search.png";
 import close from "../../assets/img/close.png";
 import styles from "./search.module.scss";
 
-import { Context } from "../../App";
 import { useDispatch } from "react-redux";
 import { setSearchValue } from "../../redux/slices/filterSlice";
 

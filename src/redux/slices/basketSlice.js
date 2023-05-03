@@ -27,15 +27,11 @@ export const basketSlice = createSlice({
         0
       );
     },
-    // plusItem: (state, action) => {
-    //   const findItem = state.items.find((obj) => obj.id === action.payload);
-    //   if (findItem) {
-    //     findItem.count++;
-    //   }
-    // },
+
     minusItem: (state, action) => {
       const findItem = state.items.find((obj) => obj.id === action.payload);
-      const currentCount = state.items[0].count;
+      const currentCount = state.items[findItem.id].count;
+
       if (findItem && currentCount > 1) {
         findItem.count--;
       }
