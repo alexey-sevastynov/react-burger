@@ -1,0 +1,48 @@
+.root {
+  display: flex;
+  position: relative;
+
+  .description {
+    h2 {
+      padding-top: 80px;
+      text-align: center;
+    }
+    p {
+      padding-top: 80px;
+      text-align: center;
+    }
+  }
+
+  .close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+
+    &:hover {
+      transform: rotate(-180deg);
+      transition: all 0.5s ease 0s;
+    }
+    &:active {
+      transform: rotate(180deg);
+      transition: all 0.5s ease 0s;
+    }
+  }
+}
+
+@media (max-width: 1020px) {
+  .root {
+    flex-direction: column-reverse;
+
+    .description {
+      h2 {
+        padding-top: 40px;
+      }
+      p {
+        padding-top: 20px;
+      }
+    }
+  }
+}

@@ -1,102 +1,112 @@
 [
   {
-    "id": 0,
+    "id": "0",
     "imageUrl": "https://instafood.com.ua/images/full_shop_product_pc/gamburger-5d8cc86ead475.png?1609925858",
     "title": "Gamburger",
     "types": [0, 1],
     "sizes": [180, 250, 360],
     "price": [118, 150, 220],
     "category": 1,
-    "rating": 4
+    "rating": 4,
+    "description": "Veal cutlet, American mustard, Ketchup, Pickled onion, Pickled cucumber, Wheat bun, Iceberg lettuce."
   },
   {
-    "id": 1,
+    "id": "1",
     "imageUrl": "https://instafood.com.ua/images/full_shop_product_pc/instafood-2021-01-014-602781af84c0f.png?1613219966",
     "title": "Fishburger with salmon",
     "types": [0],
     "sizes": [180, 250],
     "price": [160, 195],
     "category": 3,
-    "rating": 6
+    "rating": 6,
+    "description": "Salmon cutlet, American mustard, Mayonnaise, Tomato, Wheat bun, Iceberg lettuce, Cheddar cheese."
   },
   {
-    "id": 2,
+    "id": "2",
     "imageUrl": "https://instafood.com.ua/images/full_shop_product_pc/sirnii-burger-quarter-right-old-601d1080427ce.png?1612519548",
     "title": "Cheese Burger",
     "types": [0],
     "sizes": [180, 360],
     "price": [140, 250],
     "category": 5,
-    "rating": 4
+    "rating": 4,
+    "description": "Breaded cheese, Brioche, Walnuts, Iceberg salad, Sour cream, Cranberry sauce, Dorblu cheese, Cheddar cheese."
   },
   {
-    "id": 3,
+    "id": "3",
     "imageUrl": "https://instafood.com.ua/images/full_shop_product_pc/burger-texas-605c987d156c5.png?1616683818",
     "title": "Burger Texas",
     "types": [1],
     "sizes": [180, 250, 360],
     "price": [200, 245, 290],
     "category": 4,
-    "rating": 2
+    "rating": 2,
+    "description": "Bacon, Veal Cutlet, Brioche, Red Onion, Tomato, Iceberg Lettuce, BBQ Sauce, Spicy Sauce."
   },
   {
-    "id": 4,
+    "id": "4",
     "imageUrl": "https://instafood.com.ua/images/full_shop_product_pc/black-chicken-burger-605c9903cee3d.png?1616683147",
     "title": "Black Chicken Burger",
     "types": [0, 1],
     "sizes": [180, 250, 360],
     "price": [176, 200, 231],
     "category": 1,
-    "rating": 8
+    "rating": 8,
+    "description": "hicken fillet cutlet, White onion, Mayonnaise, Tomato, Wheat bun, Iceberg lettuce, Sour cream, BBQ sauce, Mushrooms."
   },
   {
-    "id": 5,
+    "id": "5",
     "imageUrl": "https://instafood.com.ua/images/full_shop_product_pc/deltoro-2022-10-927-635154d825a19.png?1666339897",
     "title": "Burger Black Fresh with egg",
     "types": [0],
     "sizes": [180, 250],
     "price": [170, 200],
     "category": 1,
-    "rating": 2
+    "rating": 2,
+    "description": "Veal cutlet, Cucumber, Tomato, Wheat bun, Iceberg lettuce, BBQ sauce, Tartar sauce, Cheddar cheese, Chicken egg."
   },
   {
-    "id": 6,
+    "id": "6",
     "imageUrl": "https://instafood.com.ua/images/full_shop_product_pc/instafood003-copy-5dc714a5eb499.png?1609925858",
     "title": "Burger American",
     "types": [0],
     "sizes": [180, 360],
     "price": [220, 300],
     "category": 2,
-    "rating": 9
+    "rating": 9,
+    "description": "Bacon, Veal cutlet, American mustard, Pickled onion, Mayonnaise, Pickled cucumbers, Tomato, Wheat bun, Iceberg lettuce."
   },
   {
-    "id": 7,
+    "id": "7",
     "imageUrl": "https://instafood.com.ua/images/full_shop_product_pc/deltoro-2022-10-948-6351530b0474a.png?1666339622",
     "title": "Sao Paulo burger",
     "types": [0, 1],
     "sizes": [180, 250, 360],
     "price": [155, 190, 220],
     "category": 2,
-    "rating": 10
+    "rating": 10,
+    "description": "Bacon, Veal Cutlet, Brioche, Caramelized Onion, Tomato, Iceberg Lettuce, Tartar Sauce, Cheese Hat."
   },
   {
-    "id": 8,
+    "id": "8",
     "imageUrl": "https://instafood.com.ua/images/full_shop_product_pc/double-cheeseburger-605c9402121e0.png?1616686188",
     "title": "Double Cheeseburger",
     "types": [0, 1],
     "sizes": [180, 250, 360],
     "price": [200, 250, 300],
     "category": 2,
-    "rating": 10
+    "rating": 10,
+    "description": "Veal cutlet, American mustard, Ketchup, Pickled onion, Pickled cucumbers, Wheat bun, Iceberg lettuce, Cheddar cheese."
   },
   {
-    "id": 9,
+    "id": "9",
     "imageUrl": "https://instafood.com.ua/images/full_shop_product_pc/instafood03146-5cfab0f298222.png?1609925794",
     "title": "Double Lamb Burger",
     "types": [0, 1],
     "sizes": [180, 250, 360],
     "price": [280, 310, 350],
     "category": 4,
-    "rating": 7
+    "rating": 7,
+    "description": "Lamb cutlet, Suluguni cheese, American mustard, Cilantro, Lecho, Mayonnaise, Cucumber, Wheat bun, Iceberg lettuce, Author's BBQ sauce."
   }
 ]
