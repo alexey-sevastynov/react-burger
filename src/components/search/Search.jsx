@@ -4,21 +4,34 @@ import close from "../../assets/img/close.png";
 import styles from "./search.module.scss";
 
 import { Context } from "../../App";
+import { useDispatch } from "react-redux";
+import { setSearchValue } from "../../redux/slices/filterSlice";
 
 function Search() {
-  const { searchValue, setSearchValue } = React.useContext(Context);
+  const [value, setValue] = React.useState("");
+  const dispatch = useDispatch();
 
   const inputRef = React.useRef();
 
   const onClickClear = () => {
-    setSearchValue("");
+    dispatch(setSearchValue(""));
+    setValue("");
     inputRef.current.focus();
+  };
+
+  const updateSearchValue = React.useCallback((str) => {
+    dispatch(setSearchValue(str));
+  });
+
+  const onChangeInput = (event) => {
+    setValue(event.target.value);
+    updateSearchValue(event.target.value);
   };
 
   return (
     <div className={styles.root}>
       <img className={styles.search} src={search} alt="search" />
-      {searchValue && (
+      {value && (
         <img
           onClick={onClickClear}
           className={styles.close}
@@ -29,8 +42,8 @@ function Search() {
 
       <input
         ref={inputRef}
-        value={searchValue}
-        onChange={(event) => setSearchValue(event.target.value)}
+        value={value}
+        onChange={(event) => onChangeInput(event)}
         placeholder="search burger..."
       />
     </div>

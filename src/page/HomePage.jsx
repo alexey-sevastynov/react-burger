@@ -24,9 +24,7 @@ function HomePage() {
   const navigate = useNavigate();
 
   const { items, status } = useSelector(selectorBurgerData);
-  const { categoryId, sort, page } = useSelector(selectorFilter);
-
-  const { searchValue } = React.useContext(Context);
+  const { categoryId, sort, page, searchValue } = useSelector(selectorFilter);
 
   const apiBurgers = async () => {
     const showSortName = sort.sortProperty.replace("-", "");
