@@ -5,11 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import BasketEmpty from "../components/basket/BasketEmpty";
 import BasketItem from "../components/basket/BasketItem";
-import { clearItems } from "../redux/slices/basketSlice";
+import { clearItems, selectorBasket } from "../redux/slices/basketSlice";
 
 function BasketPage() {
   const dispatch = useDispatch();
-  const items = useSelector((state) => state.basketSlice.items);
+  const { items } = useSelector(selectorBasket);
 
   const currentCount = items.reduce((sum, obj) => obj.count + sum, 0);
 

@@ -14,8 +14,8 @@ import Search from "../components/search/Search";
 import { Context } from "../App";
 
 import { useDispatch, useSelector } from "react-redux";
-import { setCategoryId } from "../redux/slices/filterSlice";
-import { fetchBurgers } from "../redux/slices/burgersSlice";
+import { selectorFilter, setCategoryId } from "../redux/slices/filterSlice";
+import { fetchBurgers, selectorBurgerData } from "../redux/slices/burgersSlice";
 
 const typeNames = ["classic", "dietary"];
 
@@ -23,21 +23,14 @@ function HomePage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { categoryId, sortType, page, items, status } = useSelector(
-    ({ filterSlice, burgersSlice }) => ({
-      categoryId: filterSlice.categoryId,
-      sortType: filterSlice.sort,
-      page: filterSlice.page,
-      items: burgersSlice.items,
-      status: burgersSlice.status,
-    })
-  );
+  const { items, status } = useSelector(selectorBurgerData);
+  const { categoryId, sort, page } = useSelector(selectorFilter);
 
   const { searchValue } = React.useContext(Context);
 
   const apiBurgers = async () => {
-    const showSortName = sortType.sortProperty.replace("-", "");
-    const ascOrDesc = sortType.sortProperty.includes("-") ? "asc" : "desc";
+    const showSortName = sort.sortProperty.replace("-", "");
+    const ascOrDesc = sort.sortProperty.includes("-") ? "asc" : "desc";
     // setIsLoading(true);
     dispatch(
       fetchBurgers({
@@ -53,17 +46,17 @@ function HomePage() {
 
   React.useEffect(() => {
     apiBurgers();
-  }, [sortType, categoryId, page]);
+  }, [sort, categoryId, page]);
 
   React.useEffect(() => {
     const queryString = qs.stringify({
-      sortProperty: sortType.sortProperty,
+      sortProperty: sort.sortProperty,
       categoryId,
       page,
     });
 
     navigate(`?${queryString}`);
-  }, [sortType, categoryId, page]);
+  }, [sort, categoryId, page]);
 
   const onLoader = [...new Array(6)].map((_, index) => (
     <Skeleton key={index} />

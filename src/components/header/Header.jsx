@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 
 import logo from "../../assets/img/burger.png";
 
-import Search from "../search/Search";
 import { useSelector } from "react-redux";
+import { selectorBasket } from "../../redux/slices/basketSlice";
 
 function Header() {
-  const { items, totalPrice } = useSelector((state) => state.basketSlice);
+  const { items } = useSelector(selectorBasket);
 
   const currentCount = items.reduce((sum, obj) => obj.count + sum, 0);
 

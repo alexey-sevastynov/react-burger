@@ -49,6 +49,10 @@ export const basketSlice = createSlice({
   },
 });
 
+export const selectorBasket = (state) => state.basketSlice;
+export const selectorBasketById = (id) => (state) =>
+  state.basketSlice.items.find((obj) => obj.id === id);
+
 export const {
   addItem,
   removeItem,

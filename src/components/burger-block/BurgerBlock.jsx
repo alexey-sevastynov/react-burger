@@ -1,12 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addItem } from "../../redux/slices/basketSlice";
+import { addItem, selectorBasketById } from "../../redux/slices/basketSlice";
 
 function BurgerBlock({ id, title, imageUrl, sizes, types, typeNames, price }) {
   const dispatch = useDispatch();
-  const basketItem = useSelector((state) =>
-    state.basketSlice.items.find((obj) => obj.id === id)
-  );
+  const basketItem = useSelector(selectorBasketById(id));
 
   const showCount = basketItem ? basketItem.count : "";
 
