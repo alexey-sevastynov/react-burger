@@ -3,13 +3,13 @@ import Header from "../components/header/Header";
 
 import { Outlet } from "react-router-dom";
 
-function Layout() {
+const Layout: React.FC = () => {
   return (
     <div className="wrapper">
       <Header />
       <Outlet />
     </div>
   );
-}
+};
 
 export default Layout;

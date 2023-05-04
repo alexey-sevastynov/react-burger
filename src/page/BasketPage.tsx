@@ -7,14 +7,17 @@ import BasketEmpty from "../components/basket/BasketEmpty";
 import BasketItem from "../components/basket/BasketItem";
 import { clearItems, selectorBasket } from "../redux/slices/basketSlice";
 
-function BasketPage() {
+const BasketPage: React.FC = () => {
   const dispatch = useDispatch();
   const { items } = useSelector(selectorBasket);
 
-  const currentCount = items.reduce((sum, obj) => obj.count + sum, 0);
+  const currentCount = items.reduce(
+    (sum: number, obj: any) => obj.count + sum,
+    0
+  );
 
   const currentPrice = items.reduce(
-    (sum, obj) => obj.price * obj.count + sum,
+    (sum: number, obj: any) => obj.price * obj.count + sum,
     0
   );
 
@@ -100,7 +103,7 @@ function BasketPage() {
         </div>
       </div>
       <div className="content__items">
-        {items.map((objPizza) => (
+        {items.map((objPizza: any) => (
           <BasketItem key={objPizza.id} {...objPizza} />
         ))}
       </div>
@@ -151,6 +154,6 @@ function BasketPage() {
       </div>
     </div>
   );
-}
+};
 
 export default BasketPage;

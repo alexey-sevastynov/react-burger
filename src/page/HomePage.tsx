@@ -17,7 +17,7 @@ import { fetchBurgers, selectorBurgerData } from "../redux/slices/burgersSlice";
 
 const typeNames = ["classic", "dietary"];
 
-function HomePage() {
+const HomePage: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -29,6 +29,7 @@ function HomePage() {
     const ascOrDesc = sort.sortProperty.includes("-") ? "asc" : "desc";
     // setIsLoading(true);
     dispatch(
+      // @ts-ignore
       fetchBurgers({
         showSortName,
         ascOrDesc,
@@ -58,10 +59,10 @@ function HomePage() {
     <Skeleton key={index} />
   ));
   const burgers = items
-    .filter((burger) =>
+    .filter((burger: any) =>
       burger.title.toLowerCase().includes(searchValue.toLowerCase())
     )
-    .map((burger) => (
+    .map((burger: any) => (
       <BurgerBlock key={burger.id} {...burger} typeNames={typeNames} />
     ));
 
@@ -72,7 +73,7 @@ function HomePage() {
         <div className="content__top">
           <Categories
             categoryId={categoryId}
-            onChangeCategory={(id) => dispatch(setCategoryId(id))}
+            onChangeCategory={(id: number) => dispatch(setCategoryId(id))}
           />
           <Sort />
         </div>
@@ -87,6 +88,6 @@ function HomePage() {
       </div>
     </div>
   );
-}
+};
 
 export default HomePage;
