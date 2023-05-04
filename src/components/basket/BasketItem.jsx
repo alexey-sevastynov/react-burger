@@ -9,7 +9,10 @@ function BasketItem({ id, title, imageUrl, price, count, type, size }) {
     dispatch(addItem({ id }));
   };
   const onClickMinus = () => {
-    dispatch(minusItem(id));
+    console.log(typeof count);
+    if (count > 1) {
+      dispatch(minusItem(id));
+    }
   };
   const onClickRemove = () => {
     if (window.confirm("Do you want delete?")) {

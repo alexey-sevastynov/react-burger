@@ -30,9 +30,8 @@ export const basketSlice = createSlice({
 
     minusItem: (state, action) => {
       const findItem = state.items.find((obj) => obj.id === action.payload);
-      const currentCount = state.items[findItem.id].count;
 
-      if (findItem && currentCount > 1) {
+      if (findItem) {
         findItem.count--;
       }
     },
