@@ -10,7 +10,7 @@ const pages = ["1", "2", "3"];
 
 function Pagination() {
   const dispatch = useDispatch();
-  const page = useSelector(({ filterSlice }) => filterSlice.page);
+  const page = useSelector(({ filterSlice }: any) => filterSlice.page);
 
   const leftPage = () => {
     if (page > 1) {
@@ -27,7 +27,7 @@ function Pagination() {
     return (
       <div
         key={item}
-        style={page === +item ? { backgroundColor: "#136f0d" } : null}
+        style={page === +item ? { backgroundColor: "#136f0d" } : undefined}
         onClick={() => dispatch(setPage(+item))}
         className={styles.circleMain}
       >

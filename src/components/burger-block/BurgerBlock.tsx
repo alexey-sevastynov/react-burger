@@ -3,7 +3,25 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItem, selectorBasketById } from "../../redux/slices/basketSlice";
 import { Link } from "react-router-dom";
 
-function BurgerBlock({ id, title, imageUrl, sizes, types, typeNames, price }) {
+type BurgerBlockProps = {
+  id: string;
+  title: string;
+  imageUrl: string;
+  sizes: number[];
+  types: string[];
+  typeNames: string[];
+  price: number[];
+};
+
+const BurgerBlock: React.FC<BurgerBlockProps> = ({
+  id,
+  title,
+  imageUrl,
+  sizes,
+  types,
+  typeNames,
+  price,
+}) => {
   const dispatch = useDispatch();
   const basketItem = useSelector(selectorBasketById(id));
 
@@ -24,14 +42,14 @@ function BurgerBlock({ id, title, imageUrl, sizes, types, typeNames, price }) {
     dispatch(addItem(item));
   };
 
-  const onClickTypes = (index) => {
+  const onClickTypes = (index: number) => {
     setActiveTypes(index);
   };
-  const onClickSizes = (index) => {
+  const onClickSizes = (index: number) => {
     setActiveSizes(index);
   };
 
-  const showTypes = types.map((typeIndex) => (
+  const showTypes = types.map((typeIndex: any) => (
     <li
       key={typeIndex}
       onClick={() => onClickTypes(typeIndex)}
@@ -88,6 +106,6 @@ function BurgerBlock({ id, title, imageUrl, sizes, types, typeNames, price }) {
       </div>
     </div>
   );
-}
+};
 
 export default BurgerBlock;
