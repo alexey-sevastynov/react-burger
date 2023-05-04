@@ -1,10 +1,9 @@
 import axios from "axios";
 import React from "react";
-// import close from "../../assets/img/close.png";
+import close from "../../assets/img/close.png";
+import styles from "./burgerDescription.module.scss";
 
 import { Link, useNavigate, useParams } from "react-router-dom";
-
-// import styles from "./burgerDescription.module.scss";
 
 const BurgerDescription: React.FC = () => {
   const [burger, setBurger] = React.useState<{
@@ -37,29 +36,18 @@ const BurgerDescription: React.FC = () => {
 
   return (
     <div className="container">
-      <div>
+      <div className={styles.root}>
         <img src={burger.imageUrl} alt="burger" />
-        <div>
+        <div className={styles.description}>
           <h2>{burger.title}</h2>
           <p>{burger.description}</p>
         </div>
+        <Link to="/">
+          <img className={styles.close} src={close} alt="close" />
+        </Link>
       </div>
     </div>
   );
-  // return (
-  //   <div className="container">
-  //     <div className={styles.root}>
-  //       <img src={burger.imageUrl} alt="burger" />
-  //       <div className={styles.description}>
-  //         <h2>{burger.title}</h2>
-  //         <p>{burger.description}</p>
-  //       </div>
-  //       <Link to="/">
-  //         <img className={styles.close} src={close} alt="close" />
-  //       </Link>
-  //     </div>
-  //   </div>
-  // );
 };
 
 export default BurgerDescription;

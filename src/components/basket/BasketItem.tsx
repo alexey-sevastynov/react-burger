@@ -2,7 +2,25 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { addItem, minusItem, removeItem } from "../../redux/slices/basketSlice";
 
-function BasketItem({ id, title, imageUrl, price, count, type, size }) {
+type BasketItemProps = {
+  id: string;
+  title: string;
+  imageUrl: string;
+  price: number;
+  count: number;
+  type: string;
+  size: number;
+};
+
+const BasketItem: React.FC<BasketItemProps> = ({
+  id,
+  title,
+  imageUrl,
+  price,
+  count,
+  type,
+  size,
+}) => {
   const dispatch = useDispatch();
 
   const onClickPlus = () => {
@@ -101,6 +119,6 @@ function BasketItem({ id, title, imageUrl, price, count, type, size }) {
       </div>
     </div>
   );
-}
+};
 
 export default BasketItem;
