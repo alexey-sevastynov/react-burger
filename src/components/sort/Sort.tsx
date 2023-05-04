@@ -34,11 +34,11 @@ function Sort() {
   const dispatch = useDispatch();
   const sort = useSelector(selectorSort);
 
-  const sortRef = React.useRef();
+  const sortRef = React.useRef<HTMLDivElement>(null);
 
   const [isVisible, setIsVisible] = React.useState(false);
 
-  const onClickSort = (obj) => {
+  const onClickSort = (obj: SortItem) => {
     dispatch(setSort(obj));
     setIsVisible(false);
   };
