@@ -2,7 +2,15 @@ import React from "react";
 
 const categories = ["All", "Meat", "Becon", "Fish", "Spicy", "Vegan"];
 
-function Categories({ categoryId, onChangeCategory }) {
+type CategoriesProps = {
+  categoryId: number;
+  onChangeCategory: any;
+};
+
+const Categories: React.FC<CategoriesProps> = ({
+  categoryId,
+  onChangeCategory,
+}) => {
   const showCategories = categories.map((categoryName, id) => (
     <li
       key={categoryName}
@@ -18,6 +26,6 @@ function Categories({ categoryId, onChangeCategory }) {
       <ul>{showCategories}</ul>
     </div>
   );
-}
+};
 
 export default Categories;

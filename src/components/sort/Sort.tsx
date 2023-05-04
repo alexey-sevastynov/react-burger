@@ -44,7 +44,7 @@ function Sort() {
   };
 
   React.useEffect(() => {
-    const handleOutsideClick = (e) => {
+    const handleOutsideClick = (e: any) => {
       if (!e.composedPath().includes(sortRef.current)) {
         setIsVisible(false);
       }
