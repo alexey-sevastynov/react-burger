@@ -12,7 +12,8 @@ const Search: React.FC = () => {
 
   const inputRef = React.useRef<HTMLInputElement>(null);
 
-  const onClickClear = () => {
+  const onClickClear = (event: React.MouseEvent<HTMLImageElement>) => {
+    console.log(event);
     dispatch(setSearchValue(""));
     setValue("");
     inputRef.current?.focus();
