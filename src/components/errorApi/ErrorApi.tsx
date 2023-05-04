@@ -1,4 +1,3 @@
-import React from "react";
 import spoil from "../../assets/img/food.png";
 
 function ErrorApi() {
