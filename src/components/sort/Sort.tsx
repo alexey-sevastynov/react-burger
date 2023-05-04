@@ -3,7 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { setSort } from "../../redux/slices/filterSlice";
 import { selectorSort } from "../../redux/slices/filterSlice";
 
-export const sortNames = [
+//_______personal type TS:
+type SortItem = {
+  sortProperty: string;
+  name: string;
+};
+
+export const sortNames: SortItem[] = [
   { sortProperty: "rating", name: "popular (DESC)" },
   { sortProperty: "-rating", name: "popular (ASC)" },
   { sortProperty: "price", name: "price (DESC)" },
@@ -11,6 +17,18 @@ export const sortNames = [
   { sortProperty: "title", name: "alphabet (DESC)" },
   { sortProperty: "-title", name: "alphabet (ASC)" },
 ];
+//_____________OR:
+// export const sortNames: {
+//   sortProperty: string;
+//   name: string;
+// }[] = [
+//   { sortProperty: "rating", name: "popular (DESC)" },
+//   { sortProperty: "-rating", name: "popular (ASC)" },
+//   { sortProperty: "price", name: "price (DESC)" },
+//   { sortProperty: "-price", name: "price (ASC)" },
+//   { sortProperty: "title", name: "alphabet (DESC)" },
+//   { sortProperty: "-title", name: "alphabet (ASC)" },
+// ];
 
 function Sort() {
   const dispatch = useDispatch();

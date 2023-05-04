@@ -11,10 +11,13 @@ function Header() {
   const { items } = useSelector(selectorBasket);
   const location = useLocation(); // url:string "/basket"
 
-  const currentCount = items.reduce((sum, obj) => obj.count + sum, 0);
+  const currentCount = items.reduce(
+    (sum: number, obj: any) => obj.count + sum,
+    0
+  );
 
   const currentPrice = items.reduce(
-    (sum, obj) => obj.price * obj.count + sum,
+    (sum: number, obj: any) => obj.price * obj.count + sum,
     0
   );
 
