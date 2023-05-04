@@ -9,9 +9,7 @@ import { selectorBasket } from "../../redux/slices/basketSlice";
 
 function Header() {
   const { items } = useSelector(selectorBasket);
-  const location = useLocation();
-
-  console.log(location.pathname); // url:string "/basket"
+  const location = useLocation(); // url:string "/basket"
 
   const currentCount = items.reduce((sum, obj) => obj.count + sum, 0);
 

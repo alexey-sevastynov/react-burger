@@ -11,8 +11,6 @@ import Pagination from "../components/pagination/Pagination";
 import ErrorApi from "../components/errorApi/ErrorApi";
 import Search from "../components/search/Search";
 
-import { Context } from "../App";
-
 import { useDispatch, useSelector } from "react-redux";
 import { selectorFilter, setCategoryId } from "../redux/slices/filterSlice";
 import { fetchBurgers, selectorBurgerData } from "../redux/slices/burgersSlice";
