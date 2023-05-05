@@ -10,6 +10,7 @@ import { selectorBasket } from "../../redux/slices/basketSlice";
 function Header() {
   const { items } = useSelector(selectorBasket);
   const location = useLocation(); // url:string "/basket"
+  const isMounted = React.useRef(false);
 
   const currentCount = items.reduce(
     (sum: number, obj: any) => obj.count + sum,
@@ -20,6 +21,14 @@ function Header() {
     (sum: number, obj: any) => obj.price * obj.count + sum,
     0
   );
+
+  React.useEffect(() => {
+    if (isMounted.current) {
+      const json = JSON.stringify(items);
+      localStorage.setItem("basket", json);
+    }
+    isMounted.current = true;
+  }, [items]);
 
   return (
     <div className="header">

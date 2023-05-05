@@ -1,5 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
+import { getBasketFromLocalStorage } from "../../utils/getBasketFromLocalStorage";
 
 export type BasketItem = {
   id: string;
@@ -18,7 +19,7 @@ interface basketSliceState {
 
 const initialState: basketSliceState = {
   totalPrice: 0,
-  items: [],
+  items: getBasketFromLocalStorage(),
 };
 
 export const basketSlice = createSlice({
