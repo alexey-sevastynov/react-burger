@@ -1,6 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addItem, selectorBasketById } from "../../redux/slices/basketSlice";
+import {
+  BasketItem,
+  addItem,
+  selectorBasketById,
+} from "../../redux/slices/basketSlice";
 import { Link } from "react-router-dom";
 
 type BurgerBlockProps = {
@@ -25,19 +29,21 @@ const BurgerBlock: React.FC<BurgerBlockProps> = ({
   const dispatch = useDispatch();
   const basketItem = useSelector(selectorBasketById(id));
 
-  const showCount = basketItem ? basketItem.count : "";
-
   const [activeTypes, setActiveTypes] = React.useState(0);
   const [activeSizes, setActiveSizes] = React.useState(0);
 
+  const showCount = basketItem ? basketItem.count : "";
+  const showPrice = price.find((_, id) => id === activeSizes);
+
   const onClickAdd = () => {
-    const item = {
+    const item: BasketItem = {
       id,
       title,
       imageUrl,
-      price: showPrice,
+      price: Number(showPrice),
       type: typeNames[activeTypes],
       size: sizes[activeSizes],
+      count: 0,
     };
     dispatch(addItem(item));
   };
@@ -68,8 +74,6 @@ const BurgerBlock: React.FC<BurgerBlockProps> = ({
       {size} gr.
     </li>
   ));
-
-  const showPrice = price.find((_, id) => id === activeSizes);
 
   return (
     <div className="pizza-block">

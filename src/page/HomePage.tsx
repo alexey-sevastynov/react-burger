@@ -11,14 +11,15 @@ import Pagination from "../components/pagination/Pagination";
 import ErrorApi from "../components/errorApi/ErrorApi";
 import Search from "../components/search/Search";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { selectorFilter, setCategoryId } from "../redux/slices/filterSlice";
 import { fetchBurgers, selectorBurgerData } from "../redux/slices/burgersSlice";
+import { useAppDispatch } from "../redux/store";
 
 const typeNames = ["classic", "dietary"];
 
 const HomePage: React.FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const { items, status } = useSelector(selectorBurgerData);
@@ -29,7 +30,6 @@ const HomePage: React.FC = () => {
     const ascOrDesc = sort.sortProperty.includes("-") ? "asc" : "desc";
     // setIsLoading(true);
     dispatch(
-      // @ts-ignore
       fetchBurgers({
         showSortName,
         ascOrDesc,

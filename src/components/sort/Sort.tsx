@@ -2,10 +2,11 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setSort } from "../../redux/slices/filterSlice";
 import { selectorSort } from "../../redux/slices/filterSlice";
+import { type } from "os";
 
 //_______personal type TS:
 type SortItem = {
-  sortProperty: string;
+  sortProperty: "rating" | "title" | "price" | "-rating" | "-title" | "-price";
   name: string;
 };
 
@@ -44,8 +45,8 @@ function Sort() {
   };
 
   React.useEffect(() => {
-    const handleOutsideClick = (e: any) => {
-      if (!e.composedPath().includes(sortRef.current)) {
+    const handleOutsideClick = (e: MouseEvent) => {
+      if (sortRef.current && !e.composedPath().includes(sortRef.current)) {
         setIsVisible(false);
       }
     };

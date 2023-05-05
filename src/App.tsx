@@ -14,6 +14,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
+
         <Route path="/burger/:id" element={<BurgerDescription />} />
         <Route path="basket" element={<BasketPage />} />
         <Route path="*" element={<NotFound />} />
