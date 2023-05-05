@@ -163,6 +163,25 @@ body {
             display: none;
           }
         }
+        &:disabled {
+          background-color: unset;
+          opacity: 0.5;
+          border-color: #777777;
+
+          cursor: unset;
+          &:hover {
+            transform: unset;
+          }
+          &:hover {
+            background-color: unset;
+          }
+          svg path {
+            fill: #777777;
+            &:hover {
+              fill: #777777;
+            }
+          }
+        }
       }
 
       b {

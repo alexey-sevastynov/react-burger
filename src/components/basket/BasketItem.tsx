@@ -27,10 +27,7 @@ const BasketItem: React.FC<BasketItemProps> = ({
     dispatch(addItem({ id }));
   };
   const onClickMinus = () => {
-    console.log(typeof count);
-    if (count > 1) {
-      dispatch(minusItem(id));
-    }
+    dispatch(minusItem(id));
   };
   const onClickRemove = () => {
     if (window.confirm("Do you want delete?")) {
@@ -50,7 +47,8 @@ const BasketItem: React.FC<BasketItemProps> = ({
         </p>
       </div>
       <div className="cart__item-count">
-        <div
+        <button
+          disabled={count === 1}
           onClick={onClickMinus}
           className="button button--outline button--circle cart__item-count-minus"
         >
@@ -70,9 +68,9 @@ const BasketItem: React.FC<BasketItemProps> = ({
               fill="#EB5A1E"
             />
           </svg>
-        </div>
+        </button>
         <b>{count}</b>
-        <div
+        <button
           onClick={onClickPlus}
           className="button button--outline button--circle cart__item-count-plus"
         >
@@ -92,7 +90,7 @@ const BasketItem: React.FC<BasketItemProps> = ({
               fill="#EB5A1E"
             />
           </svg>
-        </div>
+        </button>
       </div>
       <div className="cart__item-price">
         <b>{price * count} UAH</b>
