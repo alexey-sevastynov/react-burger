@@ -22,7 +22,7 @@ export const fetchBurgers = createAsyncThunk<BurgersItem[], FetchBurgersArgs>(
     // @ts-ignore
     url.searchParams.append("page", page);
     // @ts-ignore
-    url.searchParams.append("limit", 4);
+    url.searchParams.append("limit", 8);
     // @ts-ignore
     const { data } = await axios.get(url, {
       method: "GET",

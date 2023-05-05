@@ -7,7 +7,7 @@
     "sizes": [180, 250, 360],
     "price": [118, 150, 220],
     "category": 1,
-    "rating": 4,
+    "rating": 6,
     "description": "Veal cutlet, American mustard, Ketchup, Pickled onion, Pickled cucumber, Wheat bun, Iceberg lettuce."
   },
   {
@@ -108,5 +108,126 @@
     "category": 4,
     "rating": 7,
     "description": "Lamb cutlet, Suluguni cheese, American mustard, Cilantro, Lecho, Mayonnaise, Cucumber, Wheat bun, Iceberg lettuce, Author's BBQ sauce."
+  },
+  {
+    "id": "10",
+    "imageUrl": "https://instafood.com.ua/images/full_shop_product_pc/instafood-2023-04-361-644a78fbd66c8.png?1682605224",
+    "title": "Arkansas Burger Black",
+    "types": [0, 1],
+    "sizes": [180, 360],
+    "price": [280, 400],
+    "category": 4,
+    "rating": 10,
+    "description": "Veal, 'Pico de gallo', Pickled onions, Pickled Cucumbers, Wheat Bun, Iceberg lettuce, , Cheddar cheese, Mozzarella cheese."
+  },
+  {
+    "id": "11",
+    "imageUrl": "https://instafood.com.ua/images/full_shop_product_pc/instafood-2023-04-296-644a783382c99.png?1682606938",
+    "title": "Ohio Burger Black",
+    "types": [0, 1],
+    "sizes": [180, 360],
+    "price": [230, 380],
+    "category": 4,
+    "rating": 8,
+    "description": "Veal escalope, Caramelized onions, Pickled onions, Cucumber salted, Tomato, Wheat Bun, Iceberg lettuce, BBQ sauce, Cheddar cheese."
+  },
+  {
+    "id": "12",
+    "imageUrl": "https://instafood.com.ua/images/full_shop_product_pc/burger-french-6278d3cb4f02b.png?1652085721",
+    "title": "Burger French",
+    "types": [0],
+    "sizes": [360],
+    "price": [380],
+    "category": 1,
+    "rating": 7,
+    "description": "Beef cutlet, Brioche, American mustard, Ketchup, White onion, Mayonnaise, Cucumber salted, Iceberg lettuce, Sour cream, Sweet chilli sauce, Sriracha Sauce, Champignon mushrooms."
+  },
+  {
+    "id": "13",
+    "imageUrl": "https://instafood.com.ua/images/full_shop_product_pc/double-cheeseburger-605c9402121e0.png?1616686188",
+    "title": "Double Cheeseburger",
+    "types": [0, 1],
+    "sizes": [180, 250, 360],
+    "price": [150, 200, 300],
+    "category": 1,
+    "rating": 10,
+    "description": "Beef cutlet, Brioche, American mustard, Ketchup, White onion, Mayonnaise, Cucumber salted, Iceberg lettuce, Sour cream, Sweet chilli sauce, Sriracha Sauce, Champignon mushrooms."
+  },
+  {
+    "id": "14",
+    "imageUrl": "https://instafood.com.ua/images/full_shop_product_pc/instafood-2020-05-4221-5ed764c68b240.png?1609925798",
+    "title": "New-York Burger Mini",
+    "types": [0, 1],
+    "sizes": [180],
+    "price": [130],
+    "category": 1,
+    "rating": 9,
+    "description": "Beef cutlet, Breaded Cheese, Cucumber salted, Wheat Bun, Iceberg lettuce, Author`s barbecue sauce, Сranberry sauce."
+  },
+  {
+    "id": "15",
+    "imageUrl": "https://instafood.com.ua/images/full_shop_product_pc/instafood-2020-05-4221-5ed764c68b240.png?1609925798",
+    "title": "New-York Burger",
+    "types": [0, 1],
+    "sizes": [360],
+    "price": [250],
+    "category": 1,
+    "rating": 9,
+    "description": "Beef cutlet, Breaded Cheese, Cucumber salted, Wheat Bun, Iceberg lettuce, Author`s barbecue sauce, Сranberry sauce."
+  },
+  {
+    "id": "16",
+    "imageUrl": "https://instafood.com.ua/images/full_shop_product_pc/burger-runch-605dbd456cfa6.png?1616756173",
+    "title": "Burger Ranch",
+    "types": [0, 1],
+    "sizes": [180, 250, 360],
+    "price": [250, 300, 400],
+    "category": 2,
+    "rating": 2,
+    "description": "Bacon, Chicken Escalope, Pickled onions, Tomato, Wheat Bun, Iceberg lettuce, Author`s barbecue sauce, Runch sauce."
+  },
+  {
+    "id": "17",
+    "imageUrl": "https://instafood.com.ua/images/full_shop_product_pc/instafood002-copy-5dc714732c449.png?1609925786",
+    "title": "Burger Ceasar",
+    "types": [0, 1],
+    "sizes": [250, 360],
+    "price": [175, 220],
+    "category": 3,
+    "rating": 9,
+    "description": "Chicken Escalope, Tomato, Wheat Bun, Iceberg lettuce, Caesar Sauce, Chicken egg."
+  },
+  {
+    "id": "18",
+    "imageUrl": "https://instafood.com.ua/images/full_shop_product_pc/jack-daniels-burger-black-6278d6f5a87e7.png?1652093999",
+    "title": "Burger Jack Daniels",
+    "types": [0, 1],
+    "sizes": [180, 250, 360],
+    "price": [300, 400, 600],
+    "category": 2,
+    "rating": 3,
+    "description": "Bacon, Beef cutlet, Caramelized onions, Pickled onions, Tomato, Wheat Bun, Iceberg lettuce, Jack Daniels sauce, Cheddar cheese."
+  },
+  {
+    "id": "19",
+    "imageUrl": "https://instafood.com.ua/images/full_shop_product_pc/burger-2xl-5ea97bd916560.png?1609925808",
+    "title": "Burger Jack Daniels",
+    "types": [0],
+    "sizes": [360],
+    "price": [400],
+    "category": 1,
+    "rating": 8,
+    "description": "Beef cutlet, American mustard, Red onion, Mayonnaise, Pickled Cucumbers, Tomato, Wheat Bun, Iceberg lettuce, Author`s barbecue sauce, Cheddar cheese."
+  },
+  {
+    "id": "20",
+    "imageUrl": "https://instafood.com.ua/images/full_shop_product_pc/iinstafood05802-5d93125502af4.png?1609925794",
+    "title": "Chicken Hawaii burger",
+    "types": [0],
+    "sizes": [360],
+    "price": [200],
+    "category": 1,
+    "rating": 1,
+    "description": "Chicken fillet cutlet, Pineapple, Tomato, Wheat Bun, Iceberg lettuce, Caesar Sauce."
   }
 ]

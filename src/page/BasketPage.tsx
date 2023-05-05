@@ -26,6 +26,21 @@ const BasketPage: React.FC = () => {
       dispatch(clearItems());
   };
 
+  const succesfulOrder = () => {
+    // const pizzas = Object.values(items);
+
+    alert(`Thanks your order:\n${items
+      .map(
+        (item, id) =>
+          `${id + 1} Pizza: ${item.title}, ${item.count} pieces = ${
+            item.price * item.count
+          } UAH\n`
+      )
+      .join("")}
+  Pay please: ${currentPrice} UAH
+       `);
+  };
+
   const showBasket = (
     <div className="cart">
       <div className="cart__top">
@@ -139,7 +154,7 @@ const BasketPage: React.FC = () => {
 
             <span>Come back</span>
           </Link>
-          <div className="button pay-btn">
+          <div onClick={succesfulOrder} className="button pay-btn">
             <span>Pay now</span>
           </div>
         </div>

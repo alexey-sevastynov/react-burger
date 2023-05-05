@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./pagination.module.scss";
 import left from "../../assets/img/left-arrow.png";
 import right from "../../assets/img/right-arrow.png";
@@ -11,6 +11,9 @@ const pages = ["1", "2", "3"];
 function Pagination() {
   const dispatch = useDispatch();
   const page = useSelector(({ filterSlice }: any) => filterSlice.page);
+  const categoryId = useSelector(
+    ({ filterSlice }: any) => filterSlice.categoryId
+  );
 
   const leftPage = () => {
     if (page > 1) {
@@ -22,6 +25,11 @@ function Pagination() {
       dispatch(setPageNext(page));
     }
   };
+
+  if (categoryId > 0) {
+    dispatch(setPage(1));
+    return <></>;
+  }
 
   const showNumberPages = pages.map((item, id) => {
     return (
