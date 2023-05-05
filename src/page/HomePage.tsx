@@ -41,6 +41,10 @@ const HomePage: React.FC = () => {
     window.scroll(0, 0);
   };
 
+  const onChangeCategory = React.useCallback((id: number) => {
+    dispatch(setCategoryId(id));
+  }, []);
+
   React.useEffect(() => {
     apiBurgers();
   }, [sort, categoryId, page]);
@@ -73,9 +77,9 @@ const HomePage: React.FC = () => {
         <div className="content__top">
           <Categories
             categoryId={categoryId}
-            onChangeCategory={(id: number) => dispatch(setCategoryId(id))}
+            onChangeCategory={onChangeCategory}
           />
-          <Sort />
+          <Sort sort={sort} />
         </div>
         <h2 className="content__title">All burgers</h2>
         <div className="content__items">

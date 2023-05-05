@@ -30,10 +30,12 @@ export const sortNames: SortItem[] = [
 //   { sortProperty: "title", name: "alphabet (DESC)" },
 //   { sortProperty: "-title", name: "alphabet (ASC)" },
 // ];
+type SortProps = {
+  sort: SortItem;
+};
 
-function Sort() {
+const Sort: React.FC<SortProps> = React.memo(({ sort }) => {
   const dispatch = useDispatch();
-  const sort = useSelector(selectorSort);
 
   const sortRef = React.useRef<HTMLDivElement>(null);
 
@@ -96,6 +98,6 @@ function Sort() {
       )}
     </div>
   );
-}
+});
 
 export default Sort;
